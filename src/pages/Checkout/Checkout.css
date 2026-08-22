@@ -1,0 +1,85 @@
+/* Checkout.css ------------------------------------------------------------------ */
+
+.checkout {
+  padding: 30px 20px 60px;
+}
+
+.checkout h2 {
+  color: var(--color-azul-principal);
+}
+
+.checkout__cuerpo {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.checkout__resumen,
+.checkout__formulario {
+  flex: 1;
+  min-width: 280px;
+  background: var(--color-blanco);
+  border-radius: var(--radio-borde);
+  box-shadow: var(--sombra-suave);
+  padding: 20px;
+}
+
+.checkout__item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--color-fondo);
+  font-size: 14px;
+}
+
+.checkout__total {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 14px;
+  font-size: 17px;
+}
+
+.checkout__total strong {
+  color: var(--color-azul-principal);
+  font-size: 20px;
+}
+
+.checkout__opcion-pago {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid var(--color-borde);
+  border-radius: 6px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.checkout__boton-confirmar {
+  width: 100%;
+  background: var(--color-naranja);
+  color: var(--color-blanco);
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 15px;
+  margin-top: 8px;
+}
+
+.checkout__confirmacion,
+.checkout__vacio {
+  text-align: center;
+  padding: 70px 20px;
+}
+
+.checkout__confirmacion button,
+.checkout__vacio button {
+  margin-top: 18px;
+  background: var(--color-azul-principal);
+  color: var(--color-blanco);
+  border: none;
+  padding: 10px 22px;
+  border-radius: 6px;
+  font-weight: bold;
+}

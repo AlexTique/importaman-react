@@ -1,0 +1,123 @@
+/* CarritoCompras.css ----------------------------------------------------------- */
+
+.carrito {
+  padding: 30px 20px 50px;
+}
+
+.carrito h2 {
+  color: var(--color-azul-principal);
+}
+
+.carrito__tabla {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--color-blanco);
+  border-radius: var(--radio-borde);
+  overflow: hidden;
+  box-shadow: var(--sombra-suave);
+}
+
+.carrito__tabla th {
+  background: var(--color-azul-principal);
+  color: var(--color-blanco);
+  text-align: left;
+  padding: 12px;
+  font-size: 14px;
+}
+
+.carrito__tabla td {
+  padding: 12px;
+  border-bottom: 1px solid var(--color-fondo);
+  font-size: 14px;
+}
+
+.carrito__producto {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.carrito__producto img {
+  width: 46px;
+  height: 46px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.carrito__cantidad {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.carrito__cantidad button {
+  width: 26px;
+  height: 26px;
+  border: 1px solid var(--color-borde);
+  background: var(--color-fondo);
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.carrito__subtotal {
+  font-weight: bold;
+  color: var(--color-azul-principal);
+}
+
+.carrito__eliminar {
+  background: none;
+  border: none;
+  font-size: 16px;
+}
+
+.carrito__resumen {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  align-items: baseline;
+  padding: 18px 4px;
+  font-size: 18px;
+}
+
+.carrito__resumen strong {
+  color: var(--color-azul-principal);
+  font-size: 24px;
+}
+
+.carrito__acciones {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.carrito__seguir {
+  color: var(--color-azul-principal);
+  font-weight: bold;
+}
+
+.carrito__continuar {
+  background: var(--color-naranja);
+  color: var(--color-blanco);
+  border: none;
+  padding: 12px 22px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.carrito-vacio {
+  text-align: center;
+  padding: 70px 20px;
+}
+
+.carrito-vacio__boton {
+  display: inline-block;
+  margin-top: 16px;
+  background: var(--color-azul-principal);
+  color: var(--color-blanco);
+  padding: 10px 22px;
+  border-radius: 6px;
+  font-weight: bold;
+}
