@@ -1,0 +1,110 @@
+/* DetalleProducto.css --------------------------------------------------------- */
+
+.detalle-producto {
+  padding: 24px 20px 40px;
+}
+
+.detalle-producto__volver {
+  display: inline-block;
+  margin-bottom: 18px;
+  color: var(--color-azul-principal);
+  font-weight: bold;
+}
+
+.detalle-producto__cuerpo {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+  background: var(--color-blanco);
+  border-radius: var(--radio-borde);
+  box-shadow: var(--sombra-suave);
+  padding: 24px;
+}
+
+.detalle-producto__imagen {
+  width: 340px;
+  max-width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.detalle-producto__info {
+  flex: 1;
+  min-width: 260px;
+}
+
+.detalle-producto__estrellas {
+  color: var(--color-naranja);
+  margin: 6px 0;
+}
+
+.detalle-producto__precios {
+  margin: 10px 0;
+}
+
+.detalle-producto__precio-anterior {
+  text-decoration: line-through;
+  color: var(--color-texto-suave);
+  margin-right: 10px;
+}
+
+.detalle-producto__precio {
+  font-size: 26px;
+  font-weight: bold;
+  color: var(--color-azul-principal);
+}
+
+.detalle-producto__descripcion {
+  color: var(--color-texto);
+  line-height: 1.5;
+  margin: 14px 0;
+}
+
+.detalle-producto__specs {
+  margin: 0 0 14px 18px;
+  padding: 0;
+  color: var(--color-texto-suave);
+}
+
+.detalle-producto__disponibilidad {
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.detalle-producto__acciones {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.detalle-producto__acciones input {
+  width: 60px;
+  padding: 8px;
+  border: 1px solid var(--color-borde);
+  border-radius: 6px;
+}
+
+.detalle-producto__acciones button {
+  background: var(--color-azul-principal);
+  color: var(--color-blanco);
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.detalle-producto__acciones button:disabled {
+  background: var(--color-texto-suave);
+  cursor: not-allowed;
+}
+
+.detalle-producto__mensaje {
+  margin-top: 12px;
+  color: #2e7d32;
+  font-weight: bold;
+}
+
+.detalle-producto__no-encontrado {
+  padding: 60px 20px;
+  text-align: center;
+}

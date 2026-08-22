@@ -1,0 +1,10 @@
+/* Home.css -------------------------------------------------------------------- */
+
+.home__cuerpo {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  flex-wrap: wrap;
+}
