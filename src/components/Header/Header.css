@@ -1,0 +1,93 @@
+/*
+  Header.css
+  ---------------------------------------------------------------------------
+  Estilos del componente Header. Reutiliza la paleta institucional definida
+  en index.css (variables --color-azul-principal, --color-azul-oscuro).
+  ---------------------------------------------------------------------------
+*/
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: var(--color-azul-principal);
+  color: var(--color-blanco);
+  transition: background-color var(--transicion-rapida);
+}
+
+.header--scroll {
+  background-color: var(--color-azul-oscuro);
+  box-shadow: var(--sombra-suave);
+}
+
+.header__contenido {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 12px 20px;
+}
+
+.header__logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.header__logo img {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--color-blanco);
+}
+
+.header__buscador input {
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  width: 220px;
+  font-size: 14px;
+}
+
+.header__nav {
+  display: flex;
+  gap: 16px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.header__nav a:hover {
+  color: var(--color-naranja);
+}
+
+.header__acciones {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.header__carrito {
+  position: relative;
+}
+
+.header__carrito-contador {
+  background: var(--color-naranja);
+  color: var(--color-blanco);
+  border-radius: 50%;
+  padding: 1px 7px;
+  font-size: 12px;
+  margin-left: 4px;
+}
+
+/* Empuja el contenido de la página para que no quede oculto tras el
+   header fijo (el mismo ajuste que "margin-top: 80px" del prototipo HTML) */
+body {
+  padding-top: 74px;
+}

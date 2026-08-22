@@ -1,0 +1,38 @@
+/* Footer.css --------------------------------------------------------------- */
+
+.footer {
+  background-color: var(--color-azul-oscuro);
+  color: var(--color-blanco);
+  margin-top: 40px;
+}
+
+.footer__contenido {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  padding: 30px 20px;
+}
+
+.footer__columna {
+  flex: 1;
+  min-width: 180px;
+}
+
+.footer__columna h4 {
+  margin-bottom: 10px;
+  color: var(--color-naranja);
+}
+
+.footer__columna p {
+  margin: 4px 0;
+  font-size: 13px;
+  color: #dbe4f5;
+}
+
+.footer__derechos {
+  text-align: center;
+  font-size: 12px;
+  padding: 12px;
+  margin: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
