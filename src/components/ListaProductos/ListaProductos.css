@@ -1,0 +1,19 @@
+/* ListaProductos.css --------------------------------------------------------- */
+
+.lista-productos {
+  flex: 1;
+  display: grid;
+  /* Grid auto-fill: el número de columnas se ajusta solo según el ancho
+     disponible, sin necesidad de definir media queries (misma técnica
+     documentada en la evidencia EV04, sección 4). */
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 18px;
+  align-content: start;
+}
+
+.lista-productos__vacio {
+  flex: 1;
+  text-align: center;
+  color: var(--color-texto-suave);
+  padding: 40px;
+}

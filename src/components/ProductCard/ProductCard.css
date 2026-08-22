@@ -1,0 +1,93 @@
+/* ProductCard.css ------------------------------------------------------------ */
+
+.product-card {
+  position: relative;
+  display: block;
+  background: var(--color-blanco);
+  border-radius: var(--radio-borde);
+  box-shadow: var(--sombra-suave);
+  padding: 14px;
+  transition: transform var(--transicion-rapida), box-shadow var(--transicion-rapida);
+  color: var(--color-texto);
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.product-card__oferta {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: var(--color-rojo-oferta);
+  color: var(--color-blanco);
+  font-size: 11px;
+  font-weight: bold;
+  padding: 3px 8px;
+  border-radius: 4px;
+  z-index: 1;
+}
+
+.product-card__imagen {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.product-card__nombre {
+  font-size: 16px;
+  text-align: center;
+  margin: 6px 0;
+  min-height: 42px;
+}
+
+.product-card__precios {
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+.product-card__precio-anterior {
+  text-decoration: line-through;
+  color: var(--color-texto-suave);
+  font-size: 13px;
+  margin-right: 6px;
+}
+
+.product-card__precio {
+  color: var(--color-azul-principal);
+  font-weight: bold;
+  font-size: 17px;
+}
+
+.product-card__descuento {
+  background: var(--color-rojo-oferta);
+  color: var(--color-blanco);
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-left: 6px;
+}
+
+.product-card__estrellas {
+  text-align: center;
+  color: var(--color-naranja);
+  margin-bottom: 10px;
+}
+
+.product-card__boton {
+  width: 100%;
+  background: var(--color-azul-principal);
+  color: var(--color-blanco);
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background var(--transicion-rapida);
+}
+
+.product-card__boton:hover {
+  background: var(--color-azul-claro);
+}

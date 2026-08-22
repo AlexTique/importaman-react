@@ -1,0 +1,52 @@
+/* Categorias.css ------------------------------------------------------------ */
+
+.categorias {
+  width: 220px;
+  flex-shrink: 0;
+  background: var(--color-blanco);
+  border-radius: var(--radio-borde);
+  box-shadow: var(--sombra-suave);
+  padding: 18px;
+  height: fit-content;
+}
+
+.categorias h3 {
+  margin: 0 0 12px;
+  color: var(--color-azul-principal);
+  border-bottom: 2px solid var(--color-fondo);
+  padding-bottom: 8px;
+}
+
+.categorias li {
+  margin-bottom: 4px;
+}
+
+.categorias button {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  color: var(--color-texto);
+  transition: background var(--transicion-rapida);
+}
+
+.categorias button:hover {
+  background: var(--color-fondo);
+}
+
+.categorias__activa {
+  background: var(--color-azul-principal) !important;
+  color: var(--color-blanco) !important;
+  font-weight: bold;
+}
+
+/* En pantallas pequeñas, el sidebar ocupa el 100% del ancho (mejora
+   identificada en la evidencia EV04, sección de hallazgos) */
+@media (max-width: 700px) {
+  .categorias {
+    width: 100%;
+  }
+}

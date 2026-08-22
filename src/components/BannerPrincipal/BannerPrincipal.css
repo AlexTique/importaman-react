@@ -1,0 +1,40 @@
+/* BannerPrincipal.css ------------------------------------------------------ */
+
+.banner {
+  background-color: var(--color-azul-principal);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: var(--color-blanco);
+  padding: 70px 0;
+}
+
+.banner__contenido {
+  max-width: 480px;
+}
+
+.banner h1 {
+  font-size: 32px;
+  margin: 0 0 10px;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.banner p {
+  font-size: 18px;
+  margin: 0 0 20px;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.banner__boton {
+  display: inline-block;
+  background-color: var(--color-naranja);
+  color: var(--color-blanco);
+  font-weight: bold;
+  padding: 12px 24px;
+  border-radius: 30px;
+  transition: transform var(--transicion-rapida);
+}
+
+.banner__boton:hover {
+  transform: translateY(-2px);
+}
