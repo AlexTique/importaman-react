@@ -1,0 +1,85 @@
+/*
+  index.css
+  ---------------------------------------------------------------------------
+  Hoja de estilos global de la aplicación IMPORTAMAN.
+  Aquí se definen las variables CSS (paleta de colores institucional,
+  tipografía y espaciados) que se reutilizan en todos los componentes,
+  siguiendo la misma identidad visual definida en las evidencias
+  GA5-220501095-AA1-EV03/EV04 (prototipos y maquetación HTML).
+  ---------------------------------------------------------------------------
+*/
+
+:root {
+  /* Paleta de colores institucional IMPORTAMAN */
+  --color-azul-principal: #0d47a1;
+  --color-azul-oscuro: #08306b;
+  --color-azul-claro: #1565c0;
+  --color-azul-hover: #5e92f3;
+  --color-naranja: #ff9800;
+  --color-rojo-oferta: #e53935;
+  --color-fondo: #f2f5fb;
+  --color-blanco: #ffffff;
+  --color-texto: #222222;
+  --color-texto-suave: #666666;
+  --color-borde: #e0e0e0;
+
+  /* Tipografía */
+  --fuente-base: Arial, Helvetica, sans-serif;
+
+  /* Espaciados reutilizables */
+  --radio-borde: 10px;
+  --sombra-suave: 0 2px 10px rgba(0, 0, 0, 0.08);
+  --transicion-rapida: 0.2s ease;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--fuente-base);
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Contenedor centrado reutilizable, equivalente al ".container" de la
+   maquetación HTML original (EV04) */
+.contenedor {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Animación de rebote reutilizada del carrito (definida originalmente en
+   css/estilos.css del prototipo HTML, evidencia EV04) */
+@keyframes rebote {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.4); }
+  100% { transform: scale(1); }
+}
+.animar-rebote {
+  animation: rebote 0.4s ease;
+}
