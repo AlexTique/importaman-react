@@ -1,0 +1,62 @@
+ENLACE DEL REPOSITORIO — GA7-220501096-AA4-EV03
+===================================================================
+
+Aqui debes pegar el enlace de tu repositorio de GitHub una vez lo hayas
+creado y subido el proyecto (ver instrucciones abajo).
+
+Enlace del repositorio:
+-------------------------------------------------------------------
+  https://github.com/TU-USUARIO/importaman-react
+-------------------------------------------------------------------
+
+
+COMO SUBIR ESTE PROYECTO A TU GITHUB (paso a paso)
+===================================================================
+
+El proyecto YA tiene Git inicializado localmente, con 11 commits
+organizados por etapa de desarrollo. Solo te falta conectarlo a un
+repositorio remoto en tu cuenta de GitHub. Sigue estos pasos:
+
+PASO 1. Crea el repositorio vacio en GitHub
+-------------------------------------------------------------------
+1. Ingresa a https://github.com y en la esquina superior derecha
+   haz clic en el simbolo "+" y luego en "New repository".
+2. Nombre sugerido: importaman-react
+3. Deja el repositorio en blanco: NO marques "Add a README file",
+   NO agregues .gitignore ni licencia (el proyecto ya los trae).
+4. Puedes dejarlo en "Public" o "Private", segun lo que pida tu
+   instructor.
+5. Haz clic en "Create repository".
+
+PASO 2. Copia la URL de tu repositorio
+-------------------------------------------------------------------
+GitHub te mostrara una URL parecida a esta:
+  https://github.com/TU-USUARIO/importaman-react.git
+
+PASO 3. Conecta tu proyecto local con GitHub y sube el codigo
+-------------------------------------------------------------------
+Abre una terminal DENTRO de la carpeta del proyecto
+(importaman-react) y ejecuta, uno por uno:
+
+  git remote add origin https://github.com/TU-USUARIO/importaman-react.git
+  git push -u origin main
+
+GitHub te pedira iniciar sesion (usuario + token de acceso personal,
+no tu contrasena normal). Si nunca has creado un token:
+  https://github.com/settings/tokens -> "Generate new token (classic)"
+  marca el permiso "repo" y genera el token; usalo como contrasena.
+
+PASO 4. Verifica y actualiza este archivo
+-------------------------------------------------------------------
+1. Recarga la pagina de tu repositorio en GitHub y confirma que
+   aparecen los 11 commits y todas las carpetas (src, public, etc.).
+2. Reemplaza la URL de ejemplo al inicio de este archivo por la URL
+   real de tu repositorio.
+3. Vuelve a comprimir la carpeta completa del proyecto (incluyendo
+   este archivo ya actualizado) para la entrega final.
+
+===================================================================
+Nota: la carpeta node_modules NO se incluye en el repositorio ni en
+el ZIP de entrega (esta excluida en .gitignore), ya que se genera
+automaticamente al ejecutar "npm install". Es una practica estandar
+en cualquier proyecto de Node.js/React.
