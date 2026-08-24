@@ -4,15 +4,19 @@
  * Componente Registro de usuario, definido en la evidencia EV02, punto 10.
  * Permite crear nuevas cuentas dentro de la plataforma (RF01).
  *
- * Igual que en Login.jsx, la creación de la cuenta se simula en el
- * cliente (sin backend real) mediante localStorage, ya que esta
- * evidencia corresponde únicamente al componente Front-End del proyecto.
+ * ACTUALIZACIÓN (evidencia GA7-220501096-AA5-EV01): ya existe el backend/API
+ * real (Node.js + Express + MySQL, proyecto ALEX_TIQUE_AA5_EV01). Este
+ * componente ahora hace una petición real con fetch al endpoint
+ * POST /api/auth/registro en lugar de simular el registro con localStorage.
  * ---------------------------------------------------------------------------
  */
 
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Auth.css";
+
+// URL base de la API de autenticación (proyecto ALEX_TIQUE_AA5_EV01)
+const API_URL = "http://localhost:3000/api/auth";
 
 // Valores iniciales del formulario, para poder reutilizarlos al reiniciar
 const valoresIniciales = {
@@ -27,14 +31,15 @@ function Registro() {
   const navegar = useNavigate();
   const [formulario, setFormulario] = useState(valoresIniciales);
   const [error, setError] = useState("");
+  const [cargando, setCargando] = useState(false);
 
   function manejarCambio(evento) {
     const { name, value } = evento.target;
     setFormulario((prev) => ({ ...prev, [name]: value }));
   }
 
-  /** Validaciones básicas del formulario antes de "registrar" al usuario */
-  function manejarEnvio(evento) {
+  /** Validaciones básicas del formulario y registro real contra la API */
+  async function manejarEnvio(evento) {
     evento.preventDefault();
 
     if (Object.values(formulario).some((campo) => campo.trim() === "")) {
@@ -52,18 +57,37 @@ function Registro() {
       return;
     }
 
-    // Simulación de registro exitoso: se guarda el usuario y se redirige al login
-    localStorage.setItem(
-      "importaman_usuario",
-      JSON.stringify({
-        nombres: formulario.nombres,
-        apellidos: formulario.apellidos,
-        correo: formulario.correo,
-      })
-    );
-
     setError("");
-    navegar("/login");
+    setCargando(true);
+
+    try {
+      // Petición real al backend: POST /api/auth/registro
+      // (nótese que "confirmarClave" NO se envía, solo se usa para validar en el cliente)
+      const respuesta = await fetch(`${API_URL}/registro`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          nombres: formulario.nombres,
+          apellidos: formulario.apellidos,
+          correo: formulario.correo,
+          clave: formulario.clave,
+        }),
+      });
+
+      const datos = await respuesta.json();
+
+      if (!respuesta.ok) {
+        setError(datos.mensaje || "Error en la autenticación.");
+        return;
+      }
+
+      // Registro exitoso: se redirige al login para que inicie sesión
+      navegar("/login");
+    } catch (error) {
+      setError("No se pudo conectar con el servidor. Verifica que la API esté activa.");
+    } finally {
+      setCargando(false);
+    }
   }
 
   return (
@@ -135,8 +159,8 @@ function Registro() {
 
           {error && <p className="auth__error">{error}</p>}
 
-          <button type="submit" className="auth__boton">
-            → Crear cuenta
+          <button type="submit" className="auth__boton" disabled={cargando}>
+            {cargando ? "Creando cuenta..." : "→ Crear cuenta"}
           </button>
         </form>
 
@@ -149,3 +173,4 @@ function Registro() {
 }
 
 export default Registro;
+

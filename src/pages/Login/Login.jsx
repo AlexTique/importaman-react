@@ -5,12 +5,10 @@
  * punto 9. Permite a los usuarios autenticarse mediante correo electrónico
  * y contraseña (RF02).
  *
- * NOTA IMPORTANTE: este proyecto es la evidencia del componente Front-End
- * (GA7-220501096-AA4-EV03); todavía no existe un backend/API real que
- * valide las credenciales. Por eso la autenticación se simula guardando
- * el usuario en localStorage. Cuando el proyecto avance a las evidencias
- * de Back-End, esta función deberá reemplazarse por una petición real
- * (por ejemplo, con fetch o axios) al servicio de autenticación.
+ * ACTUALIZACIÓN (evidencia GA7-220501096-AA5-EV01): ya existe el backend/API
+ * real (Node.js + Express + MySQL, proyecto ALEX_TIQUE_AA5_EV01). Este
+ * componente ahora hace una petición real con fetch al endpoint
+ * POST /api/auth/login en lugar de simular la sesión con localStorage.
  * ---------------------------------------------------------------------------
  */
 
@@ -18,12 +16,16 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Auth.css";
 
+// URL base de la API de autenticación (proyecto ALEX_TIQUE_AA5_EV01)
+const API_URL = "http://localhost:3000/api/auth";
+
 function Login() {
   const navegar = useNavigate();
 
   // Formulario controlado: cada campo se guarda en el estado del componente
   const [formulario, setFormulario] = useState({ correo: "", clave: "" });
   const [error, setError] = useState("");
+  const [cargando, setCargando] = useState(false);
 
   /** Actualiza el estado del formulario cada vez que el usuario escribe (onChange) */
   function manejarCambio(evento) {
@@ -32,7 +34,7 @@ function Login() {
   }
 
   /** Valida y procesa el envío del formulario (onSubmit) */
-  function manejarEnvio(evento) {
+  async function manejarEnvio(evento) {
     evento.preventDefault();
 
     if (!formulario.correo || !formulario.clave) {
@@ -40,14 +42,39 @@ function Login() {
       return;
     }
 
-    // Simulación de sesión iniciada (ver nota en el encabezado del archivo)
-    localStorage.setItem(
-      "importaman_usuario",
-      JSON.stringify({ correo: formulario.correo })
-    );
-
     setError("");
-    navegar("/perfil");
+    setCargando(true);
+
+    try {
+      // Petición real al backend: POST /api/auth/login
+      const respuesta = await fetch(`${API_URL}/login`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          correo: formulario.correo,
+          clave: formulario.clave,
+        }),
+      });
+
+      const datos = await respuesta.json();
+
+      // Si la API responde con un status distinto de 2xx, "respuesta.ok" es false
+      if (!respuesta.ok) {
+        setError(datos.mensaje || "Error en la autenticación.");
+        return;
+      }
+
+      // Autenticación satisfactoria: guardamos los datos del usuario
+      // devueltos por la API (ya no se inventan en el cliente)
+      localStorage.setItem("importaman_usuario", JSON.stringify(datos.usuario));
+
+      navegar("/perfil");
+    } catch (error) {
+      // Este error ocurre si la API no está corriendo o hay un problema de red
+      setError("No se pudo conectar con el servidor. Verifica que la API esté activa.");
+    } finally {
+      setCargando(false);
+    }
   }
 
   return (
@@ -88,8 +115,8 @@ function Login() {
 
           {error && <p className="auth__error">{error}</p>}
 
-          <button type="submit" className="auth__boton">
-            → Ingresar
+          <button type="submit" className="auth__boton" disabled={cargando}>
+            {cargando ? "Ingresando..." : "→ Ingresar"}
           </button>
         </form>
 
